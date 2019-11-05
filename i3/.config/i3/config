@@ -216,6 +216,9 @@ bindsym $mod+Control+l exec i3lock-fancy -p
 #exec xautolock -time 15 -locker i3lock-fancy
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer normal 600 'i3lock-fancy -p' ''
 
+## Use titlebars on floating windows
+exec --no-startup-id ~/.config/i3/floating_titlebars.sh
+
 # scrot & gimp - root
 bindsym --release $mod+Print exec "scrot -e 'mv $f /tmp/ && gimp /tmp/$f'"
 # scrot & gimp - select window or rectangle
@@ -260,6 +263,9 @@ for_window [class="^.*"] border pixel 1
 # Make TeamViewer windows popup by default
 for_window [class="TeamViewer" instance="TeamViewer"] floating enable
 
+# Make xfreerdp floating
+for_window [class="xfreerdp" instance="xfreerdp"] floating enable
+
 # Amazed lab
 for_window [title="A-mazed"] floating enable
 
@@ -275,16 +281,16 @@ for_window [title="^floatme$"] floating enable
 
 assign [class="Google-chrome" \
         instance="crx_knipolnnllmklapflnccelgolnpehhpl" \
-        window_role="app"] hangouts
+        window_role="app"] chat
 
 assign [class="Steam" instance="Steam"] steam
 
-assign [class="discord" instance="discord"] discord
-
-assign [class="Riot" instance="riot" ] riot
-assign [class="Rocket.Chat+" instance="rocket.chat+"] rocketchat
-assign [class="Messenger for Desktop" instance="messenger for desktop"] messenger
-assign [class="Slack" instance="slack"] slack
+assign [class="discord" instance="discord"] chat
+assign [class="Riot" instance="riot" ] chat
+assign [class="Rocket.Chat+" instance="rocket.chat+"] chat
+assign [class="Messenger for Desktop" instance="messenger for desktop"] chat
+assign [class="Slack" instance="slack"] chat
+assign [class="teams-for-linux" instance="teams-for-linux"] chat
 
 # Make TeamViewer windows popup by default
 for_window [class="Steam" instance="Steam"] floating enable
@@ -312,7 +318,7 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #0C0C0C #000000
 
 client.background       #000000
 
-exec_always --no-startup-id feh --bg-fill ~/Downloads/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
 
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
