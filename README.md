@@ -9,6 +9,22 @@ To use these, use stow. Eg
 
 stow i3
 
+## Software
+termite
+conky
+polybar
+i3-gaps
+dunst
+compton
+feh
+rofi
+i3lock-fancy
+xidlehook
+ruby-i3ipc
+
+## fonts
+monaco-powerline-font
+
 ## License
 
 No license has been assigned to this project.
