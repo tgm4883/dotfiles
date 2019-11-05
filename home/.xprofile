@@ -1,0 +1,53 @@
+xset r rate 300 25
+xcet +fp /home/thomas/.fonts
+xset fp rehash
+xset -b
+
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+
+sh /etc/acpi/brightness.sh
+sh ~/.fehbg &
+
+# SSH AGENT
+SSH_ENV="$HOME/.ssh/environment"
+
+export WINEPREFIX=~/wineprefix32
+
+export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.gem/ruby/2.4.0/bin
+export PATH=$PATH:~/.config/composer/vendor/bin
+
+function start_agent {
+    echo "Initialising new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
+
+#
+
+export GIT_SSH=/usr/bin/ssh
+
+startbg emacs --daemon
+
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
+export GDK_BACKEND=x11
+exe c$GDMSESSION
+# exec gnome-session
+
