@@ -21,6 +21,7 @@ rofi
 i3lock-fancy
 xidlehook
 ruby-i3ipc
+flameshot
 
 ## fonts
 monaco-powerline-font
