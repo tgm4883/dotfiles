@@ -10,6 +10,8 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 if [ `hostname` == 'ng10887-lt' ]; then
     nohup polybar -c ~/.config/polybar/config.laptop topbar > /dev/null 2>&1 &
     nohup polybar -c ~/.config/polybar/config.laptop bottombar > /dev/null 2>&1 &
+    #nohup polybar -c ~/.config/polybar/config.laptop.alone topbar > /dev/null 2>&1 &
+    #nohup polybar -c ~/.config/polybar/config.laptop.alone bottombar > /dev/null 2>&1 &
 elif [ `hostname` == 'thomas-surface-pro-4' ]; then
     nohup polybar -c ~/.config/polybar/config.surfacepro topbar > /dev/null 2>&1 &
     nohup polybar -c ~/.config/polybar/config.surfacepro bottombar > /dev/null 2>&1 &

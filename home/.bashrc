@@ -119,6 +119,8 @@ alias la='ls -a'
 alias lla='ls -la'
 alias clean='rm *~ .*~'
 alias sclean='sudo rm *~ .*~'
+alias ta='terragrunt apply'
+alias tau='terragrunt apply --terragrunt-source-update'
 
 if [ `uname` == 'NetBSD' ]; then
     alias ls='colorls -G'
