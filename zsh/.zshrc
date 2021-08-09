@@ -49,15 +49,17 @@ bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
 bindkey  "^[[3~"  delete-char
 
-. ~/login_credentials
-. ~/bin/aws-cli-login.sh
+HOSTNAME=$(hostnamectl --static)
+if [ ! "$HOSTNAME" = "ng10887-lt" ]; then
+  . ~/bin/aws-cli-login.sh
+fi
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/tmashos/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 compinit
