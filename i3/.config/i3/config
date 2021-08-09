@@ -50,7 +50,8 @@ bindsym $mod+Control+d exec i3_quickterm
 
 # Print screen
 # bindsym Print exec xfce4-screenshooter -r -o 'metauploader -n -f'
-bindsym Print exec xfce4-screenshooter -r -o 'xclip -selection clipboard -t image/png'
+#bindsym Print exec xfce4-screenshooter -r -o 'xclip -selection clipboard -t image/png'
+bindsym Print exec flameshot gui
 
 # change focus
 bindsym $mod+h focus left

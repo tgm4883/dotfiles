@@ -6,6 +6,8 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+. ~/login_credentials 
+. ~/bin/aws-cli-login.sh
 #---------------------------------------------------------------------------
 # Setup Display
 #---------------------------------------------------------------------------
@@ -124,6 +126,9 @@ alias la='ls -a'
 alias lla='ls -la'
 alias clean='rm *~ .*~'
 alias sclean='sudo rm *~ .*~'
+alias ta='terragrunt apply'
+alias tau='terragrunt apply --terragrunt-source-update'
+alias gsu='git submodule update --remote'
 
 if [ `uname` == 'NetBSD' ]; then
     alias ls='colorls -G'
@@ -203,3 +208,6 @@ fi
 
 export PATH="$PATH"
 
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi

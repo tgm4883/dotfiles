@@ -10,20 +10,10 @@ To use these, use stow. Eg
 stow i3
 
 ## Software
-termite
-conky
-polybar
-i3-gaps
-dunst
-compton
-feh
-rofi
-i3lock-fancy
-xidlehook
-ruby-i3ipc
-
-## fonts
-monaco-powerline-font
+flameshot
+zsh
+yay -S --noconfirm zsh-theme-powerlevel10k-git
+https://github.com/romkatv/powerlevel10k
 
 ## License
 
