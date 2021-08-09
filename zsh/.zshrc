@@ -50,7 +50,7 @@ bindkey  "^[[F"   end-of-line
 bindkey  "^[[3~"  delete-char
 
 HOSTNAME=$(hostnamectl --static)
-if [ ! "$HOSTNAME" = "ng10887-lt" ]; then
+if [ "$HOSTNAME" = "ng10887-lt" ]; then
   . ~/bin/aws-cli-login.sh
 fi
 
