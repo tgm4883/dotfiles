@@ -27,6 +27,11 @@ function get_xserver ()
     esac  
 }
 
+function yay() {
+    if [[ "$#" != 0 ]]; then /usr/bin/yay "$@"; return; fi
+    if [ $(/usr/bin/yay -Pw | tee /dev/tty | wc -l) = 0 ]; then /usr/bin/yay; fi
+}
+
 if [ -z ${DISPLAY:=""} ]; then
     get_xserver
     if [[ -z ${XSERVER}  || ${XSERVER} == $(hostname) ||
@@ -83,7 +88,7 @@ xterm*|rxvt*)
     #export PS1='\e]2;\u@\H:$(pwd)\a\n\e[1;32m\u\e[0;32m@\e[1;32m\H\e[0;32m:\e[1;32m$(pwd) \e[1;33m\n\$ '
     #git bash prompt
     # http://code-worrier.com/blog/git-branch-in-bash-prompt/
-    source .git-prompt.sh
+    source ~/.git-prompt.sh
     #export PS1='\u@\h:\W$(__git_ps1 " (\[\033[32m\]%s\[\033[m\])")$ '
     export PS1="\[$GREEN\]\t\[$RED\] \[$BLUE\]\u@\h:\[$YELLOW\]\[$YELLOW\]\w\[\033[m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n\$ "
     ;;
@@ -197,3 +202,4 @@ if [ -d $HOME/bin ]; then
 fi
 
 export PATH="$PATH"
+
