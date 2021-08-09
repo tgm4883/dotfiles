@@ -6,3 +6,20 @@ Google\ Drive
 .local/share/Steam/steamapps
 .local/share/CKAN
 .local/share/baloo
+OneDrive/Podcast\ Recordings
+OneDrive/Podcast Recordings
+.cache
+.themes
+dotfiles
+.vscode-oss
+.cargo
+.icons
+.config
+.local/share/Steam
+.local/share/lutris
+.local/share/icons
+.local/share/gnome-shell
+.mozilla
+code
+.npm
+.nuget

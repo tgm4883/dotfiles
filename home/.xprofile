@@ -5,8 +5,8 @@ xset -b
 
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
-sh /etc/acpi/brightness.sh
-sh ~/.fehbg &
+#sh /etc/acpi/brightness.sh
+#sh ~/.fehbg &
 
 # SSH AGENT
 SSH_ENV="$HOME/.ssh/environment"
